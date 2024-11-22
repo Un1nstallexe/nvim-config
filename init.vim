@@ -77,6 +77,10 @@ Plug 'challenger-deep-theme/vim', { 'as': 'challenger-deep' }
 Plug 'hrsh7th/cmp-vsnip'
 
 Plug 'hrsh7th/vim-vsnip-integ'
+
+Plug 'nvim-lualine/lualine.nvim'
+" If you want to have icons in your statusline choose one of these
+Plug 'nvim-tree/nvim-web-devicons'
 call plug#end()
 
 let ayucolor="dark"
@@ -122,9 +126,9 @@ nmap y "*y
 
 " PETUHON
 
-autocmd FileType python map <F8> :w <ENTER>:terminal ~/prj/press-any-btn.out %<ENTER>i
-autocmd FileType python inoremap fori for i in range():<ESC>hi
-autocmd FileType python inoremap forj for j in range():<ESC>hi
+autocmd FileType python map <F8> :w <ENTER>:terminal pab %<ENTER>i
+" autocmd FileType python inoremap fori for i in range():<ESC>hi
+" autocmd FileType python inoremap forj for j in range():<ESC>hi
 
 " VSNIP
 
@@ -141,6 +145,7 @@ autocmd FileType out map <F8> :w <ENTER> :terminal echo Запуск\! && ./%<EN
 
 lua << EOF_EOF_EOF
 
+require('lualine').setup()
 
 require("nvim-autopairs").setup{}
 local lspconfig = require('lspconfig')
