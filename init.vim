@@ -54,37 +54,33 @@ if filereadable("/etc/vim/vimrc.local")
   source /etc/vim/vimrc.local
 endif
 
-call plug#begin()
+"call plug#begin()
 
-Plug 'nvim-tree/nvim-web-devicons' " optional, for file icons
-Plug 'nvim-tree/nvim-tree.lua'
-Plug 'hrsh7th/vim-vsnip'
-Plug 'hrsh7th/vim-vsnip-integ'
-Plug 'neovim/nvim-lspconfig'
-Plug 'hrsh7th/cmp-nvim-lsp'
-Plug 'hrsh7th/cmp-buffer'
-Plug 'hrsh7th/cmp-path'
-Plug 'hrsh7th/cmp-cmdline'
-Plug 'hrsh7th/nvim-cmp'
-Plug 'windwp/nvim-autopairs'
-Plug 'morhetz/gruvbox'
-Plug 'lukas-reineke/indent-blankline.nvim'
-Plug 'manzeloth/live-server'
-Plug 'ayu-theme/ayu-vim'
-Plug 'challenger-deep-theme/vim', { 'as': 'challenger-deep' }
+" Plug 'nvim-tree/nvim-web-devicons' " optional, for file icons
+"Plug 'nvim-tree/nvim-tree.lua'
+"Plug 'hrsh7th/vim-vsnip'
+"Plug 'hrsh7th/vim-vsnip-integ'
+"Plug 'neovim/nvim-lspconfig'
+"Plug 'hrsh7th/cmp-nvim-lsp'
+"Plug 'hrsh7th/cmp-buffer'
+"Plug 'hrsh7th/cmp-path'
+"Plug 'hrsh7th/cmp-cmdline'
+"Plug 'hrsh7th/nvim-cmp'
+"Plug 'windwp/nvim-autopairs'
+"Plug 'morhetz/gruvbox'
+"Plug 'lukas-reineke/indent-blankline.nvim'
+"Plug 'ayu-theme/ayu-vim'
+"Plug 'challenger-deep-theme/vim', { 'as': 'challenger-deep' }
 
 " For vsnip users.
-Plug 'hrsh7th/cmp-vsnip'
+"Plug 'hrsh7th/cmp-vsnip'
 
-Plug 'hrsh7th/vim-vsnip-integ'
+"Plug 'hrsh7th/vim-vsnip-integ'
 
-Plug 'nvim-lualine/lualine.nvim'
+"Plug 'nvim-lualine/lualine.nvim'
 " If you want to have icons in your statusline choose one of these
-Plug 'nvim-tree/nvim-web-devicons'
-call plug#end()
-
-let ayucolor="dark"
-colorscheme ayu
+"Plug 'nvim-tree/nvim-web-devicons'
+"call plug#end()
 set number
 set expandtab
 set smarttab
@@ -132,10 +128,10 @@ autocmd FileType python map <F8> :w <ENTER>:terminal pab %<ENTER>i
 
 " VSNIP
 
-imap <expr> <Tab>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<Tab>'
-smap <expr> <Tab>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<Tab>'
-imap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'
-smap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'
+" imap <expr> <Tab>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<Tab>'
+" smap <expr> <Tab>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<Tab>'
+" imap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'
+" smap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'
 
 
 " PRIKOLY
@@ -143,5 +139,5 @@ smap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-T
 autocmd BufWritePre *.tsx,*.ts,*.jsx,*.js EslintFixAll
 autocmd FileType out map <F8> :w <ENTER> :terminal echo Запуск\! && ./%<ENTER>i
 
-
+lua require("config.lazy")
 lua require("plugin_configs")

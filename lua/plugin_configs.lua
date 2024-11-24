@@ -4,9 +4,10 @@ require("nvim-autopairs").setup{}
 local lspconfig = require('lspconfig')
 lspconfig.clangd.setup{}
 lspconfig.pyright.setup{}
-lspconfig.emmet_ls.setup{'languages'}
+lspconfig.emmet_language_server.setup{'languages'}
 lspconfig.eslint.setup{}
-lspconfig.tsserver.setup{}
+lspconfig.ts_ls.setup{}
+lspconfig.angularls.setup{}
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
@@ -14,7 +15,7 @@ vim.g.loaded_netrwPlugin = 1
 vim.opt.termguicolors = true
 
 -- empty setup using defaults
-require("nvim-tree").setup()
+--require("nvim-tree").setup()
 
   -- Set up nvim-cmp.
   local cmp = require'cmp'
@@ -23,8 +24,8 @@ require("nvim-tree").setup()
     snippet = {
       -- REQUIRED - you must specify a snippet engine
       expand = function(args)
-        vim.fn["vsnip#anonymous"](args.body) -- For vsnip users.
-        -- require('luasnip').lsp_expand(args.body) -- For luasnip users.
+        --vim.fn["vsnip#anonymous"](args.body) -- For vsnip users.
+        require('luasnip').lsp_expand(args.body) -- For luasnip users.
         -- require('snippy').expand_snippet(args.body) -- For snippy users.
         -- vim.fn["UltiSnips#Anon"](args.body) -- For ultisnips users.
       end,
